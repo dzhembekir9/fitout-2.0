@@ -17,8 +17,14 @@ const ProductSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: Date.now,
-  updatedAt: Date.now,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
   slug: {
     type: String,
     required: true,

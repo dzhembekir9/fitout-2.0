@@ -14,4 +14,4 @@ const AttributesSchema = mongoose.Schema({
   custom: {},
 });
 
-export default AttributesSchema;
+module.exports = AttributesSchema;

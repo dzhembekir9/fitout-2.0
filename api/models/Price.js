@@ -21,4 +21,4 @@ const PriceSchema = mongoose.Schema({
   offers: {},
 });
 
-export default PriceSchema;
+module.exports = PriceSchema;

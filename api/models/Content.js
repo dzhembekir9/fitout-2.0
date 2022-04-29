@@ -18,4 +18,4 @@ const ContentSchema = mongoose.Schema({
   html: String,
 });
 
-export default ContentSchema;
+module.exports = ContentSchema;
