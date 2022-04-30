@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { Navbar } from '../../components'
+import { Navbar, Footer } from '../../components'
 
 type LayoutProps = {
   pageTitle: string
@@ -17,7 +17,7 @@ export const Layout = ({ children, pageTitle }: LayoutProps) => {
       </Head>
       <Navbar />
       <main>{children}</main>
-      <footer>footer</footer>
+      <Footer />
     </>
   )
 }

@@ -1,0 +1,61 @@
+.Wrapper {
+  @apply bg-primary py-4.5;
+}
+
+.Container {
+  @apply container mx-auto px-6;
+}
+
+.FirstRow {
+  @apply w-full grid grid-cols-1 text-center lg:grid-cols-4 lg:text-left lg:mb-4.5;
+}
+
+.SecondRow {
+  @apply flex flex-col items-center lg:flex-row lg:items-start mb-12 lg:mb-4.5;
+}
+
+@media (min-width: theme('screens.lg')) {
+  .SecondRow {
+    & > div {
+      width: 33.33%;
+    }
+    & > div:last-child {
+      width: 66.66%;
+    }
+  }
+}
+
+.ImageWrapper {
+  @apply flex justify-center my-12 lg:my-0;
+}
+
+.IconsWrapper {
+  @apply flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6;
+
+  & > svg {
+    @apply cursor-pointer;
+  }
+}
+
+.SocialIconsWrapper {
+  @apply flex items-center justify-center lg:justify-start gap-5;
+
+  & > svg {
+    @apply cursor-pointer;
+  }
+}
+
+.Title {
+  @apply text-white text-center lg:text-left text-md font-bold mb-4;
+  letter-spacing: 0.1rem;
+}
+
+.Text {
+  @apply text-white text-center lg:text-left text-sm font-normal;
+
+  margin-bottom: 1.125rem;
+}
+
+.BottomText {
+  @apply text-white text-center text-sm;
+}
