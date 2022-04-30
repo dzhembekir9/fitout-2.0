@@ -18,8 +18,6 @@ export const MobileNavbar = () => {
     }
   }, [isDrawerOpen])
 
-  console.log(containerRef.current?.classList.value)
-
   return (
     <nav className={css.Wrapper}>
       <div
