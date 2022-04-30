@@ -1,0 +1,14 @@
+.Wrapper {
+  @apply hidden lg:flex items-center justify-between py-4;
+
+  box-shadow: rgb(0 0 0 / 9%) 0px 2px 24px 0px;
+}
+
+.ListWrapper {
+  @apply flex items-center text-sm font-bold;
+
+  & > li {
+    @apply cursor-pointer hover:underline;
+    letter-spacing: 0.1rem;
+  }
+}

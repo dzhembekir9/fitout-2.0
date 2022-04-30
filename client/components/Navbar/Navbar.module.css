@@ -1,7 +1,0 @@
-.Wrapper {
-  @apply flex items-center justify-between py-4 bg-white px-4;
-}
-
-.ListWrapper {
-  @apply flex items-center text-sm font-bold;
-}

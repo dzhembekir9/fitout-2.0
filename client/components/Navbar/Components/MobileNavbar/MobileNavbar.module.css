@@ -1,0 +1,33 @@
+.Wrapper {
+  @apply flex lg:hidden justify-between items-center py-3 px-5;
+
+  box-shadow: rgb(0 0 0 / 9%) 0px 2px 24px 0px;
+}
+
+.Hamburger.is-active .HamburgerLine:nth-child(2) {
+  @apply opacity-0;
+}
+
+.Hamburger.is-active .HamburgerLine:nth-child(1) {
+  -webkit-transform: translateY(13px) rotate(45deg);
+  -ms-transform: translateY(13px) rotate(45deg);
+  -o-transform: translateY(13px) rotate(45deg);
+  transform: translateY(13px) rotate(45deg);
+}
+
+.Hamburger.is-active .HamburgerLine:nth-child(3) {
+  -webkit-transform: translateY(-13px) rotate(-45deg);
+  -ms-transform: translateY(-13px) rotate(-45deg);
+  -o-transform: translateY(-13px) rotate(-45deg);
+  transform: translateY(-13px) rotate(-45deg);
+}
+
+.HamburgerLine {
+  @apply bg-primary block ml-2;
+  width: 20px;
+  height: 2px;
+  margin-top: 6px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
