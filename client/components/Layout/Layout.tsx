@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import css from './Layout.module.css'
 import { Navbar, Footer } from '../../components'
 
 type LayoutProps = {
@@ -16,7 +17,7 @@ export const Layout = ({ children, pageTitle }: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main>{children}</main>
+      <main className={css.Main}>{children}</main>
       <Footer />
     </>
   )

@@ -5,6 +5,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      xs: '320px',
       sm: '480px',
       md: '768px',
       lg: '976px',
@@ -23,6 +24,8 @@ module.exports = {
       xl: '1.125rem',
       '2xl': '1.25rem',
       '3xl': '1.5rem',
+      '4xl': '2rem',
+      '5xl': '3rem',
     },
     fontWeight: {
       hairline: 100,

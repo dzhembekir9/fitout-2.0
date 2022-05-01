@@ -1,0 +1,16 @@
+.Button {
+  @apply inline-flex justify-center items-center py-3 px-5 text-md font-bold whitespace-nowrap text-center;
+
+  letter-spacing: 0.125rem;
+  border-radius: 0.125rem;
+  transition: all 100ms ease 0s;
+  width: var(--width);
+}
+
+.Primary {
+  @apply bg-white text-primary hover:bg-primary hover:text-white;
+}
+
+.Secondary {
+  @apply bg-primary text-white hover:bg-white hover:text-primary;
+}

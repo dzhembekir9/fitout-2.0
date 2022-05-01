@@ -1,10 +1,10 @@
 import React from 'react'
-import { Layout } from '../../components'
+import { Layout, HomePageHero } from '../../components'
 
 export const Home = () => {
   return (
     <Layout pageTitle="Fitout">
-      <h1>home</h1>
+      <HomePageHero />
     </Layout>
   )
 }

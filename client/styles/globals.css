@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  src: url('../fonts/geographwebregular.ttf');
+  src: url('../public/fonts/geographwebregular.ttf');
   font-family: geograph;
 }
 
