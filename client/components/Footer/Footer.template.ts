@@ -27,7 +27,7 @@ export const footerData: FooterProps = {
       content: [
         { label: '1-888-963-8944', url: '#' },
         { label: '1-814-251-9966 (Text)', url: '#' },
-        { label: 'help@allbirds.com', url: '#' },
+        { label: 'help@fitout.com', url: '#' },
         { label: 'Returns/Exchanges', url: '#' },
         { label: 'FAQ/Contact Us', url: '#' },
         { label: 'Afterpay', url: '#' },
@@ -67,7 +67,7 @@ export const footerData: FooterProps = {
   secondRow: {
     social: {
       title: 'FOLLOW THE FLOCK',
-      text: 'Exclusive offers, a heads up on new things, and sightings of Allbirds in the wild. Oh, we have cute sheep, too. #weareallbirds',
+      text: 'Exclusive offers, a heads up on new things, and sightings of Fitout in the wild. Oh, we have cute sheep, too. #wearefitout',
     },
     singleImage: {
       url: 'https://i.imgur.com/Y8y03BY.png',
@@ -77,6 +77,6 @@ export const footerData: FooterProps = {
     },
   },
   thirdRow: {
-    text: '© 2022 Allbirds, Inc. All Rights Reserved. Terms, Privacy & Accessibility',
+    text: '© 2022 Fitout, Inc. All Rights Reserved. Terms, Privacy & Accessibility',
   },
 }

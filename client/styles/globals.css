@@ -11,40 +11,48 @@
   @apply text-primary;
 }
 
-body {
-  font-family: geograph;
+@layer base {
+  body {
+    font-family: geograph;
+  }
 }
 
-.layout {
-  @apply pb-32;
-}
+@layer utilities {
+  .layout {
+    @apply pb-32;
+  }
 
-.container {
-  @apply px-6 mx-auto;
-  width: 100%;
-}
-@media (min-width: 320px) {
-  .container {
-    max-width: 320px;
+  .center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   }
-}
-@media (min-width: 480px) {
+
   .container {
-    max-width: 480px;
+    @apply px-6 mx-auto;
+    width: 100%;
   }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
+  @media (min-width: 320px) {
+    .container {
+      max-width: 320px;
+    }
   }
-}
-@media (min-width: 976px) {
-  .container {
-    max-width: 976px;
+  @media (min-width: 480px) {
+    .container {
+      max-width: 480px;
+    }
   }
-}
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1440px;
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 976px) {
+    .container {
+      max-width: 976px;
+    }
+  }
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1440px;
+    }
   }
 }

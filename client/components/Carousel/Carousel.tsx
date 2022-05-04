@@ -25,6 +25,7 @@ export const Carousel = ({ renderSlide, slides, scrollTo }: CarouselProps) => {
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla])
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla])
+
   const onSelect = useCallback(() => {
     if (!embla) return
     setPrevBtnEnabled(embla.canScrollPrev())
