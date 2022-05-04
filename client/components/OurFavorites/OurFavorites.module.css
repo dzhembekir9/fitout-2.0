@@ -1,0 +1,10 @@
+.TabsWrapper {
+  @apply flex overflow-x-scroll;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.TabsWrapper::-webkit-scrollbar {
+  display: none;
+}

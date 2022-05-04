@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import css from './Footer.module.css'
-import { footerData } from './footer.template'
+import { footerData } from './Footer.template'
 import { Item } from './Components'
 import {
   FlagNZ,

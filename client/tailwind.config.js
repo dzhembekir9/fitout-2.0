@@ -14,6 +14,7 @@ module.exports = {
     colors: {
       primary: '#212a2f',
       white: '#fff',
+      grey: '#d3d4d5',
       red: '#dc2626',
     },
     fontSize: {
@@ -41,7 +42,9 @@ module.exports = {
     fontFamily: {},
     extend: {
       spacing: {
-        4.5: '4.5rem',
+        4.5: '1.125rem',
+        7.5: '1.875rem',
+        16.5: '4.5rem',
       },
     },
   },

@@ -1,5 +1,5 @@
 .Wrapper {
-  @apply bg-primary py-4.5;
+  @apply bg-primary py-16.5;
 }
 
 .Container {
@@ -7,11 +7,11 @@
 }
 
 .FirstRow {
-  @apply w-full grid grid-cols-1 text-center lg:grid-cols-4 lg:text-left lg:mb-4.5;
+  @apply w-full grid grid-cols-1 text-center lg:grid-cols-4 lg:text-left lg:mb-16.5;
 }
 
 .SecondRow {
-  @apply flex flex-col items-center lg:flex-row lg:items-start mb-12 lg:mb-4.5;
+  @apply flex flex-col items-center lg:flex-row lg:items-start mb-12 lg:mb-16.5;
 }
 
 @media (min-width: theme('screens.lg')) {

@@ -1,5 +1,5 @@
 .Button {
-  @apply inline-flex justify-center items-center py-3 px-5 text-md font-bold whitespace-nowrap text-center;
+  @apply inline-flex justify-center items-center py-3 px-5 font-bold whitespace-nowrap text-center;
 
   letter-spacing: 0.125rem;
   border-radius: 0.125rem;
@@ -12,5 +12,5 @@
 }
 
 .Secondary {
-  @apply bg-primary text-white hover:bg-white hover:text-primary;
+  @apply bg-primary text-white hover:bg-white hover:text-primary border-2;
 }

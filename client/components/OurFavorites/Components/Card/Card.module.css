@@ -1,0 +1,4 @@
+.Wrapper {
+  @apply w-max lg:w-full;
+  box-shadow: rgb(211 212 213) 0px 6px 24px 0px;
+}

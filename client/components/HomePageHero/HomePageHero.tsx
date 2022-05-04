@@ -7,7 +7,7 @@ export const HomePageHero = () => {
   const { imageWidth, imageHeight } = useImageSize()
 
   return (
-    <div className="relative">
+    <div className="relative mb-32">
       <div className="hidden md:block">
         <Image
           src="https://i.imgur.com/tGCOCrf.png"
@@ -39,10 +39,10 @@ export const HomePageHero = () => {
         </p>
       </div>
       <div className="absolute bottom-10 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col gap-y-3 sm:flex-row justify-center gap-x-6">
-        <Button href="#" width={180}>
+        <Button href="#" width={180} className="text-sm">
           SHOP MEN
         </Button>
-        <Button href="#" width={180}>
+        <Button href="#" width={180} className="text-sm">
           SHOP WOMEN
         </Button>
       </div>

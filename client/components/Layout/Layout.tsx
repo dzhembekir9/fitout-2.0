@@ -5,7 +5,7 @@ import { Navbar, Footer } from '../../components'
 
 type LayoutProps = {
   pageTitle: string
-  children: JSX.Element
+  children: React.ReactNode
 }
 
 export const Layout = ({ children, pageTitle }: LayoutProps) => {

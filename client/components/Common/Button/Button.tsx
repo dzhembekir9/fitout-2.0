@@ -9,6 +9,7 @@ type ButtonProps = {
   children: JSX.Element | string
   href?: string
   width?: number
+  className?: string
 }
 
 export const Button = ({
@@ -17,18 +18,19 @@ export const Button = ({
   onClick,
   href,
   width,
+  className,
 }: ButtonProps) => {
   if (href) {
     return (
       <Link href={href} passHref>
         <a
-          className={cn(css.Button, {
+          className={cn(css.Button, className, {
             [css.Primary]: type === 'primary',
             [css.Secondary]: type === 'secondary',
           })}
           style={
             {
-              '--width': width + 'px' ?? 'auto',
+              '--width': width ? `${width}px` : 'auto',
             } as CSSProperties
           }>
           {children}
@@ -40,13 +42,13 @@ export const Button = ({
   return (
     <button
       onClick={onClick}
-      className={cn(css.Button, {
+      className={cn(css.Button, className, {
         [css.Primary]: type === 'primary',
         [css.Secondary]: type === 'secondary',
       })}
       style={
         {
-          '--width': width + 'px' ?? 'auto',
+          '--width': width ? `${width}px` : 'auto',
         } as CSSProperties
       }>
       {children}
