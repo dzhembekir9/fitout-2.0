@@ -7,7 +7,7 @@ export const HomePageHero = () => {
   const { imageWidth, imageHeight } = useImageSize()
 
   return (
-    <div className="relative mb-32">
+    <div className="relative">
       <div className="hidden md:block">
         <Image
           src="https://i.imgur.com/tGCOCrf.png"

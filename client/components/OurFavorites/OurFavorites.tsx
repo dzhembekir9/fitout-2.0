@@ -27,7 +27,7 @@ export const OurFavorites = () => {
   }, [selectedTab])
 
   return (
-    <div className="layout lg:container lg:mx-auto mx-6 ">
+    <div className="mx-6 ">
       <h2 className="text-4xl text-center font-bold">Our Favorites</h2>
 
       <div className="flex justify-center items-center mb-9 border-b-2 border-grey">

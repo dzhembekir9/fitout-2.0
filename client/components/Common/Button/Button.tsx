@@ -10,6 +10,7 @@ type ButtonProps = {
   href?: string
   width?: number
   className?: string
+  breakWord?: boolean
 }
 
 export const Button = ({
@@ -19,6 +20,7 @@ export const Button = ({
   href,
   width,
   className,
+  breakWord = false,
 }: ButtonProps) => {
   if (href) {
     return (
@@ -27,6 +29,8 @@ export const Button = ({
           className={cn(css.Button, className, {
             [css.Primary]: type === 'primary',
             [css.Secondary]: type === 'secondary',
+            'whitespace-normal': breakWord,
+            'whitespace-nowrap': !breakWord,
           })}
           style={
             {
@@ -45,6 +49,8 @@ export const Button = ({
       className={cn(css.Button, className, {
         [css.Primary]: type === 'primary',
         [css.Secondary]: type === 'secondary',
+        'whitespace-normal': breakWord,
+        'whitespace-nowrap': !breakWord,
       })}
       style={
         {

@@ -15,7 +15,7 @@
 }
 
 .ButtonWrapper {
-  @apply hidden lg:flex flex-col center;
+  @apply hidden lg:flex flex-col;
   animation: opacity 0.15s ease-in;
 }
 
