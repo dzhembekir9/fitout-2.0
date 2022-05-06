@@ -1,0 +1,37 @@
+.ContentWrapper {
+  @apply mb-6 text-center pt-3;
+}
+
+.Input {
+  @apply p-3 px-3 border-b-2 outline-none mb-1.5 lg:m-0;
+
+  transition: all 0.15s ease-in-out;
+
+  &:focus {
+    box-shadow: rgb(33 42 47) 0px 2px 0px 0px inset,
+      rgb(33 42 47) 2px 0px 0px 0px inset, rgb(33 42 47) -2px 0px 0px 0px inset;
+  }
+
+  &::-webkit-input-placeholder {
+    /* Edge */
+    @apply font-bold;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    @apply font-bold;
+  }
+
+  &::placeholder {
+    @apply font-bold;
+  }
+}
+
+@media (min-width: theme('screens.md')) {
+  .Input {
+    width: 33rem;
+  }
+  .ContentWrapper {
+    width: 57%;
+  }
+}

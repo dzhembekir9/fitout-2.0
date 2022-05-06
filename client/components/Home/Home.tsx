@@ -1,5 +1,11 @@
 import React from 'react'
-import { Layout, HomePageHero, OurFavorites, Banner } from '../../components'
+import {
+  Layout,
+  HomePageHero,
+  OurFavorites,
+  Banner,
+  Newsletter,
+} from '../../components'
 
 export const Home = () => {
   return (
@@ -43,6 +49,10 @@ export const Home = () => {
           buttonHref="#"
           breakButtonText
         />
+      </section>
+
+      <section className="bg-lightGrey">
+        <Newsletter />
       </section>
     </Layout>
   )
