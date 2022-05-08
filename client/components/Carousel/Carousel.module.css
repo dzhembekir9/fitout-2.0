@@ -1,11 +1,10 @@
 .Wrapper {
-  position: relative;
-  width: 100%;
+  @apply relative w-full overflow-hidden;
 }
 
 .Viewport {
-  overflow: hidden;
-  width: 100%;
+  @apply overflow-hidden;
+  overflow: var(--overflow) !important;
 }
 
 .Viewport.is-draggable {
@@ -18,7 +17,7 @@
 }
 
 .Container {
-  display: flex;
+  @apply flex;
   user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
@@ -27,49 +26,39 @@
 }
 
 .Slide {
-  position: relative;
-  min-width: auto;
-  padding-left: 10px;
+  @apply relative pl-3;
+  min-width: var(--slideWidth);
 }
 
 .Inner {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+  @apply relative overflow-hidden w-full;
 }
 
-.embla__button {
-  outline: 0;
-  cursor: pointer;
-  background-color: transparent;
-  touch-action: manipulation;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  width: 30px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-  fill: #1bcacd;
-  padding: 0;
+.Button {
+  @apply flex justify-center items-center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  border: 1px solid rgb(211, 212, 213);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 24px 0px;
+  transition: border-color 125ms ease-in-out 0s;
+
+  &:hover {
+    border-color: rgb(116, 121, 124);
+  }
 }
 
-.embla__button:disabled {
-  cursor: default;
-  opacity: 0.3;
+.PrevButton {
+  @apply absolute left-10 top-1/2;
+
+  & > svg {
+    transform: rotate(180deg);
+  }
 }
 
-.embla__button__svg {
-  width: 100%;
-  height: 100%;
-}
-
-.embla__button--prev {
-  left: 27px;
-}
-
-.embla__button--next {
-  right: 27px;
+.NextButton {
+  @apply absolute right-10 top-1/2;
 }

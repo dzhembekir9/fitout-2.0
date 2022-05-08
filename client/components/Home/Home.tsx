@@ -5,7 +5,13 @@ import {
   OurFavorites,
   Banner,
   Newsletter,
+  HomePageCarousel,
 } from '../../components'
+import {
+  newArrivalData,
+  shopTheCollectionsData,
+  storiesData,
+} from '../HomePageCarousel/HomePageCarousel.template'
 
 export const Home = () => {
   return (
@@ -29,6 +35,10 @@ export const Home = () => {
       </section>
 
       <section className="layout">
+        <HomePageCarousel {...newArrivalData} />
+      </section>
+
+      <section className="layout">
         <Banner
           src="https://i.imgur.com/3mth66Q.png"
           title="Meet The Tree Dasher 2"
@@ -41,6 +51,10 @@ export const Home = () => {
       </section>
 
       <section className="layout">
+        <HomePageCarousel {...shopTheCollectionsData} />
+      </section>
+
+      <section className="layout">
         <Banner
           src="https://i.imgur.com/fQzD2LY.png"
           title="Reversing Climate Change Through Better Business"
@@ -49,6 +63,10 @@ export const Home = () => {
           buttonHref="#"
           breakButtonText
         />
+      </section>
+
+      <section className="layout">
+        <HomePageCarousel {...storiesData} />
       </section>
 
       <section className="bg-lightGrey">

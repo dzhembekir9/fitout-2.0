@@ -1,6 +1,6 @@
 import React from 'react'
 import css from './DesktopNavbar.module.css'
-import { IconUser, IconHelp, IconCart } from '../../../Common'
+import { IconUser, IconHelp, IconCart } from '../../../Common/Icons'
 
 export const DesktopNavbar = () => {
   return (

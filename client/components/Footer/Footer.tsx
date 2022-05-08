@@ -13,7 +13,7 @@ import {
   IconTwitter,
   IconFacebook,
   IconPinterest,
-} from '../Common'
+} from '../Common/Icons'
 
 export const Footer = () => {
   const { firstRow, secondRow, thirdRow } = footerData
