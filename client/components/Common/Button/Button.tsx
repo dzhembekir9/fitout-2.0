@@ -6,7 +6,7 @@ import Link from 'next/link'
 type ButtonProps = {
   type?: 'primary' | 'secondary'
   onClick?: () => void
-  children: JSX.Element | string
+  children: React.ReactNode | string
   href?: string
   width?: number
   className?: string

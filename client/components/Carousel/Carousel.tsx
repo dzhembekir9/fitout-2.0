@@ -63,7 +63,7 @@ export const Carousel = ({
         }
         ref={viewportRef}>
         <div className={css.Container}>
-          {slides.map((slide, index: number) => (
+          {slides.map((slide: any, index: number) => (
             <div
               className={css.Slide}
               style={
