@@ -1,10 +1,13 @@
+type Keys = 'men' | 'women' | 'new-arrivals'
+
 export type NavigationProps = {
-  key?: string
+  key?: Keys
   menus: MenuProps[]
 }
 
 export type MenuProps = {
   title?: string
+  isFeatured?: boolean
   href?: string
   submenus: SubMenuProps[]
 }

@@ -1,0 +1,7 @@
+.ImageWrapper {
+  @apply relative;
+
+  &:hover > p {
+    @apply underline;
+  }
+}
