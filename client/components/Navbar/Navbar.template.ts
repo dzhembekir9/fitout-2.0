@@ -1,8 +1,70 @@
-import { NavigationProps } from './Navbar.props'
+import {
+  NavigationProps,
+  DesktopNavigationProps,
+  MobileNavigationProps,
+} from './Navbar.props'
+
+export const desktopMenus: DesktopNavigationProps[] = [
+  {
+    title: 'MEN',
+    isLeft: true,
+  },
+  {
+    title: 'WOMEN',
+    isLeft: true,
+  },
+  {
+    title: 'NEW ARRIVALS',
+    isLeft: true,
+  },
+  {
+    title: 'SUSTAINABILITY',
+  },
+  {
+    title: 'RERUN',
+  },
+  {
+    title: 'STORES',
+  },
+]
+
+export const mobileMenus: MobileNavigationProps[] = [
+  {
+    title: 'MEN',
+  },
+  {
+    title: 'WOMEN',
+  },
+  {
+    title: 'NEW ARRIVALS',
+  },
+  {
+    title: 'SUSTAINABILITY',
+  },
+  {
+    title: 'RERUN',
+    href: '#',
+  },
+  {
+    title: 'STORES',
+    href: '#',
+  },
+  {
+    title: 'Account',
+    href: '#',
+    nonBold: true,
+  },
+  {
+    title: 'Help',
+    href: '#',
+    nonBold: true,
+  },
+]
 
 export const menuData: NavigationProps[] = [
   {
-    key: 'men',
+    menuKey: 'men',
+    title: 'MEN',
     menus: [
       {
         title: 'SHOES',
@@ -124,7 +186,8 @@ export const menuData: NavigationProps[] = [
     ],
   },
   {
-    key: 'women',
+    menuKey: 'women',
+    title: 'WOMEN',
     menus: [
       {
         title: 'SHOES',
@@ -254,7 +317,8 @@ export const menuData: NavigationProps[] = [
     ],
   },
   {
-    key: 'new-arrivals',
+    menuKey: 'new-arrivals',
+    title: 'NEW ARRIVALS',
     menus: [
       {
         title: 'BEST FOR',
@@ -315,5 +379,29 @@ export const menuData: NavigationProps[] = [
         ],
       },
     ],
+  },
+  {
+    menuKey: 'sustainability',
+    title: 'SUSTAINABILITY',
+  },
+  {
+    title: 'RERUN',
+    href: '#',
+  },
+  {
+    title: 'STORES',
+    href: '#',
+  },
+  {
+    title: 'Account',
+    href: '#',
+    onlyOnMobile: true,
+    nonBoldText: true,
+  },
+  {
+    title: 'Help',
+    href: '#',
+    onlyOnMobile: true,
+    nonBoldText: true,
   },
 ]

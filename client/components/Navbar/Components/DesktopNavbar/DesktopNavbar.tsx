@@ -16,8 +16,6 @@ export const DesktopNavbar = () => {
     setVisibleMenu(menu)
   }
 
-  console.log(menuData)
-
   return (
     <>
       {visibleMenu && <OverflowHidden />}
@@ -73,7 +71,7 @@ export const DesktopNavbar = () => {
       {visibleMenu && (
         <div className={css.MenuWrapper}>
           {menuData.map((data) => {
-            if (data.key === visibleMenu) {
+            if (data.menus && data.menuKey === visibleMenu) {
               return <DesktopNavigation menus={data.menus} />
             }
           })}

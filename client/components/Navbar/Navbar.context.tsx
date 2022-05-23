@@ -5,7 +5,12 @@ type NavigationContextProps = {
   setVisibleMenu: React.Dispatch<React.SetStateAction<VisibleMenuProps>>
 }
 
-type VisibleMenuProps = 'men' | 'women' | 'new-arrivals' | ''
+export type VisibleMenuProps =
+  | 'men'
+  | 'women'
+  | 'new-arrivals'
+  | 'sustainability'
+  | ''
 
 const NavigationContext = createContext<NavigationContextProps>({
   visibleMenu: '',

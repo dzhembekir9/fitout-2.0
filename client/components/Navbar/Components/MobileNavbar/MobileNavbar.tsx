@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import css from './MobileNavbar.module.css'
 import { IconCart } from '../../../Common'
+import { MobileNavigation } from '../../Components'
 
 export const MobileNavbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -19,20 +20,23 @@ export const MobileNavbar = () => {
   }, [isDrawerOpen])
 
   return (
-    <nav className={css.Wrapper}>
-      <div
-        className={css.Hamburger}
-        ref={containerRef}
-        onClick={handleBurgerClick}
-        id="hamburger-1">
-        <span className={css.HamburgerLine} />
-        <span className={css.HamburgerLine} />
-        <span className={css.HamburgerLine} />
-      </div>
-      <div className="text-3xl">Fitout</div>
-      <div>
-        <IconCart />
-      </div>
-    </nav>
+    <div>
+      <nav className={css.Wrapper}>
+        <div
+          className={css.Hamburger}
+          ref={containerRef}
+          onClick={handleBurgerClick}
+          id="hamburger-1">
+          <span className={css.HamburgerLine} />
+          <span className={css.HamburgerLine} />
+          <span className={css.HamburgerLine} />
+        </div>
+        <div className="text-3xl">Fitout</div>
+        <div>
+          <IconCart />
+        </div>
+      </nav>
+      {isDrawerOpen && <MobileNavigation />}
+    </div>
   )
 }

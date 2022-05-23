@@ -1,5 +1,5 @@
 import React, { createContext } from 'react'
-import { menuData } from './Navbar.template'
+import { useWindowSize } from '../../hooks'
 import { NavigationContextProvider } from './Navbar.context'
 import { DesktopNavbar, MobileNavbar } from './Components'
 
@@ -8,10 +8,11 @@ const NavigationContext = createContext({})
 const values = {}
 
 export const Navbar = () => {
+  const { width } = useWindowSize()
+
   return (
     <NavigationContextProvider>
-      <DesktopNavbar />
-      <MobileNavbar />
+      {width >= 976 ? <DesktopNavbar /> : <MobileNavbar />}
     </NavigationContextProvider>
   )
 }
