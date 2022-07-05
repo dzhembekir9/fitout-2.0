@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const ContentSchema = require('./Content');
-const PriceSchema = require('./Price');
-const AttributesSchema = require('./Attributes');
+const ContentSchema = require('./Content')
+const PriceSchema = require('./Price')
+const AttributesSchema = require('./Attributes')
 
 const ProductSchema = mongoose.Schema({
   name: {
@@ -39,6 +39,6 @@ const ProductSchema = mongoose.Schema({
     required: true,
   },
   price: PriceSchema,
-});
+})
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model('Product', ProductSchema)
