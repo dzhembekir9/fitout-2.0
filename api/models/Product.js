@@ -5,6 +5,10 @@ const PriceSchema = require('./Price')
 const AttributesSchema = require('./Attributes')
 
 const ProductSchema = mongoose.Schema({
+  id: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

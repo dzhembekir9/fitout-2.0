@@ -32,13 +32,24 @@ const typeDefs = gql`
   Attribute Type
   """
   type Attribute {
-    attributes: [String]
+    color: String
+    sizes: [Int]
+  }
+
+  type Attributes {
+    id: String
+    attributes: Attribute
     images: [Image]!
     custom: String
   }
 
   input AttributeInput {
-    attributes: [String]
+    color: String
+    sizes: [Int]
+  }
+
+  input AttributesInput {
+    attributes: AttributeInput
     images: [ImageInput]!
     custom: String
   }
@@ -82,6 +93,7 @@ const typeDefs = gql`
   Product Type
   """
   type Product {
+    id: ID!
     name: String!
     metaTitle: String!
     metaDescription: String!
@@ -90,7 +102,7 @@ const typeDefs = gql`
     slug: String!
     content: [Content!]!
     attributes: [String]!
-    variants: [Attribute]!
+    variants: [Attributes]
     price: Price
   }
 
@@ -103,18 +115,20 @@ const typeDefs = gql`
     slug: String!
     content: [ContentInput!]!
     attributes: [String]!
-    variants: [AttributeInput]!
+    variants: [AttributesInput]
     price: PriceInput
   }
 
   type Query {
-    hello: String
     getAllProducts: [Product]!
-    getProductByName(name: String): Product
+    getProductBySlug(slug: String): Product
+    getAllVariants(productId: ID!): [Attributes]
   }
 
   type Mutation {
     createProduct(product: ProductInput): Product
+    deleteProduct(id: ID!): String
+    editProductById(id: ID!, product: ProductInput): Product
   }
 `
 

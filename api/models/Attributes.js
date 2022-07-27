@@ -1,7 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const AttributesSchema = mongoose.Schema({
-  attributes: [{}],
+  id: {
+    type: String,
+    required: true,
+  },
+  attributes: { color: String, sizes: [Number] },
   images: [
     {
       thumb: String,
@@ -12,6 +16,6 @@ const AttributesSchema = mongoose.Schema({
     },
   ],
   custom: {},
-});
+})
 
-module.exports = AttributesSchema;
+module.exports = AttributesSchema
