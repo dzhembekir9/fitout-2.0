@@ -7,6 +7,7 @@ import { IconChevronRight } from '../../../../../Common/Icons'
 
 type MenuProps = {
   setVisibleMenu: React.Dispatch<React.SetStateAction<VisibleMenuProps>>
+  withSubmenus?: boolean
 } & NavigationProps
 
 export const Menu = ({
@@ -15,19 +16,11 @@ export const Menu = ({
   nonBoldText,
   setVisibleMenu,
   menuKey,
+  withSubmenus,
 }: MenuProps) => {
   return (
     <li className="w-full border-b border-grey">
-      {href ? (
-        <Link href={href} passHref>
-          <a
-            className={cn('text-md tracking-widest w-full px-9 py-5 block', {
-              'font-bold text-sm': !nonBoldText,
-            })}>
-            {title}
-          </a>
-        </Link>
-      ) : (
+      {withSubmenus ? (
         <button
           onClick={() => setVisibleMenu(menuKey ?? '')}
           className="flex justify-between items-center w-full px-9 py-5">
@@ -36,6 +29,15 @@ export const Menu = ({
             <IconChevronRight />
           </span>
         </button>
+      ) : (
+        <Link href={href ?? '#'} passHref>
+          <a
+            className={cn('text-md tracking-widest w-full px-9 py-5 block', {
+              'font-bold text-sm': !nonBoldText,
+            })}>
+            {title}
+          </a>
+        </Link>
       )}
     </li>
   )

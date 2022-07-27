@@ -10,9 +10,11 @@ export type NavigationProps = {
 }
 
 export type MenuProps = {
+  menuKey?: VisibleMenuProps
   title?: string
   isFeatured?: boolean
   href?: string
+  nonBoldText?: boolean
   submenus: SubMenuProps[]
 }
 

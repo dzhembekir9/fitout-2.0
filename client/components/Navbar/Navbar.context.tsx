@@ -10,6 +10,7 @@ export type VisibleMenuProps =
   | 'women'
   | 'new-arrivals'
   | 'sustainability'
+  | 'shoes'
   | ''
 
 const NavigationContext = createContext<NavigationContextProps>({

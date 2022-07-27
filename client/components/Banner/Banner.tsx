@@ -46,7 +46,7 @@ export const Banner = ({
             href={buttonHref}
             type="secondary"
             className="text-md self-stretch"
-            width={!secondButtonLabel ? 370 : 158}
+            width={!secondButtonLabel ? '370px' : '158px'}
             breakWord={breakButtonText}>
             {buttonLabel}
           </Button>
@@ -55,7 +55,7 @@ export const Banner = ({
               href={secondButtonHref}
               type="secondary"
               className="text-md self-stretch"
-              width={158}
+              width={'158px'}
               breakWord={breakButtonText}>
               {secondButtonLabel}
             </Button>

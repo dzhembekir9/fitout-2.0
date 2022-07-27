@@ -34,10 +34,10 @@ export const Card = (card: CardProps) => {
         {isMouseOver && <div className={css.Overlay} />}
         {isMouseOver && (
           <div className={cn(css.ButtonWrapper, 'center')}>
-            <Button className="my-3 text-md" width={300} href="#">
+            <Button className="my-3 text-md" width={'300px'} href="#">
               SHOP MEN
             </Button>
-            <Button className="text-md" width={300} href="#">
+            <Button className="text-md" width={'300px'} href="#">
               SHOP WOMEN
             </Button>
           </div>

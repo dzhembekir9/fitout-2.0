@@ -68,6 +68,7 @@ export const menuData: NavigationProps[] = [
     menus: [
       {
         title: 'SHOES',
+        menuKey: 'shoes',
         href: '#',
         submenus: [
           {

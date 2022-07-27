@@ -8,7 +8,7 @@ type ButtonProps = {
   onClick?: () => void
   children: React.ReactNode | string
   href?: string
-  width?: number
+  width?: string
   className?: string
   breakWord?: boolean
 }
@@ -34,7 +34,7 @@ export const Button = ({
           })}
           style={
             {
-              '--width': width ? `${width}px` : 'auto',
+              '--width': width ? `${width}` : 'auto',
             } as CSSProperties
           }>
           {children}
@@ -54,7 +54,7 @@ export const Button = ({
       })}
       style={
         {
-          '--width': width ? `${width}px` : 'auto',
+          '--width': width ? `${width}` : 'auto',
         } as CSSProperties
       }>
       {children}
