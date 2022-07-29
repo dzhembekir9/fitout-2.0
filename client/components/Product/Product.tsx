@@ -1,29 +1,23 @@
 import React from 'react'
 import { Layout } from '../../components'
 import { Images, ProductInfo } from './Components'
+import { useProductContext } from './Product.context'
 
-export const Product = ({
-  product,
-  variants,
-  selectVariantById,
-  selectedVariant,
-}: any) => {
-  console.log(selectedVariant)
+export const Product = () => {
+  const { name, isLoading } = useProductContext()
+
+  if (!name) return <h1>Error page</h1>
+
+  if (isLoading) return <h1>loading...</h1>
 
   return (
-    <Layout pageTitle={product.name}>
+    <Layout pageTitle={name}>
       <div className="pt-16">
         <div className="container flex">
           <Images />
           <ProductInfo />
         </div>
         <div>html</div>
-        <button
-          onClick={() => {
-            selectVariantById('89ddaf4a-fa63-4ca0-aeaa-342f68f67d23')
-          }}>
-          Click
-        </button>
       </div>
     </Layout>
   )

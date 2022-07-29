@@ -13,6 +13,8 @@ export type CardProps = {
   title: string
   label: string
   labelIcon: string
+  shopMenHref: string
+  shopWomenHref: string
   image: {
     url: string
     width: number

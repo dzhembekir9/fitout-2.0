@@ -13,6 +13,8 @@ export const Cards = ({ cards }: CardsProps) => {
             label={card.label}
             labelIcon={card.labelIcon}
             image={card.image}
+            shopMenHref={card.shopMenHref}
+            shopWomenHref={card.shopWomenHref}
           />
         )
       })}

@@ -8,11 +8,11 @@ export interface Product {
   slug: string
   content: Content[]
   attributes: string[]
-  variants: Variants[]
+  variants: Variant[]
   price: Price
 }
 
-export interface Variants {
+export interface Variant {
   id: string
   attributes: any
   images: Image[]

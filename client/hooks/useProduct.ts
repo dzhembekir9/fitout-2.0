@@ -1,48 +1,43 @@
 import { useState } from 'react'
-import { useQuery, DocumentNode } from '@apollo/client'
-import { useProductVariants } from '../hooks'
-import { GET_VARIANTS } from '../operations/queries'
+import { useRouter } from 'next/router'
+import { useQuery } from '@apollo/client'
+import { GET_PRODUCT } from '../operations/queries'
+import { Variant } from '../types/Product'
 
-type QueryProps = {
-  query: DocumentNode
-  variables?: any
-}
+type GetProductVariants = () => Variant[] | undefined
 
-export const useProduct = ({ query, variables }: QueryProps) => {
-  const [selectedVariant, setSelectedVariant] = useState('')
+export const useProduct = () => {
+  const [selectedVariant, setSelectedVariant] = useState<Variant | undefined>(
+    undefined
+  )
+  const { query } = useRouter()
+  const slug = query.productSlug
 
   const {
     data: product,
-    loading: isProductLoading,
-    error: productError,
-  } = useQuery(query, {
-    variables,
+    loading: isLoading,
+    error,
+  } = useQuery(GET_PRODUCT, {
+    variables: { slug },
   })
 
-  const {
-    data: variants,
-    isLoading: isVariantsLoading,
-    error: variantsError,
-  } = useProductVariants({
-    query: GET_VARIANTS,
-    variables: { productId: product?.getProductBySlug.id },
-  })
+  const getProductVariants: GetProductVariants = () => {
+    return product?.getProductBySlug?.variants
+  }
 
   const selectVariantById = (id: string) => {
-    const selectedVariant = variants?.getAllVariants.find(
+    const selectedVariant = getProductVariants()?.find(
       (variant) => variant.id === id
     )
     setSelectedVariant(selectedVariant)
   }
 
   return {
-    product,
-    isProductLoading,
-    productError,
+    product: product?.getProductBySlug,
+    isLoading,
+    error,
+    getProductVariants,
     selectedVariant,
-    variants,
-    isVariantsLoading,
-    variantsError,
     selectVariantById,
   }
 }

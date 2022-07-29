@@ -12,10 +12,12 @@
 
 .Overlay {
   @apply hidden lg:block absolute bg-black opacity-50 top-0 left-0 right-0 bottom-1;
+
+  animation: opacity 0.15s ease-in;
 }
 
 .ButtonWrapper {
-  @apply hidden lg:flex flex-col;
+  @apply flex flex-col;
   animation: opacity 0.15s ease-in;
 }
 
@@ -24,6 +26,6 @@
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.5;
   }
 }

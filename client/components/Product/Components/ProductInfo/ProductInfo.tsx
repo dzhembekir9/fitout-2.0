@@ -1,45 +1,56 @@
 import React from 'react'
+import { usePrice } from '../../../../hooks'
 import { Button } from '../../../Common'
+import { useProductContext } from '../../Product.context'
 
 export const ProductInfo = () => {
+  const {
+    name,
+    getProductVariants,
+    selectVariantById,
+    selectedVariant,
+    price,
+  } = useProductContext()
+
+  const variants = getProductVariants()
+
+  const formattedPrice = usePrice({
+    centAmount: price.originalPrice.centAmount ?? 0,
+    fractionDigits: price.originalPrice.fractionDigits ?? 0,
+  })
+
   return (
     <div className="pl-9 w-1/3">
       <div className="mb-6">
-        <p>Home / Women's Shoes / Everyday Sneakers /</p>
-        <h1 className="text-4xl font-bold tracking-wider">
-          Women's Tree Runners
-        </h1>
-        <p>$105</p>
+        <p>Home / Womens Shoes / Everyday Sneakers /</p>
+        <h1 className="text-4xl font-bold tracking-wider">{name}</h1>
+        <p>{formattedPrice}</p>
         <div>★ ★ ★ ★ ★ (502)</div>
       </div>
       <div>
-        <span>Colors</span>
-        <span>Mist (White sole)</span>
-        <div>0 0 0 0 0 0 0 0</div>
+        <span>Colors:</span>
+        <span>{selectedVariant?.attributes?.color}</span>
+        {variants?.map((variant) => {
+          return (
+            <div
+              key={`Colors__${variant.id}`}
+              onClick={() => selectVariantById(variant.id)}>
+              {variant.attributes.color}
+            </div>
+          )
+        })}
         <div className="mt-5 mb-4">
           <div className="mb-3">Select size:</div>
           <div className="flex flex-wrap gap-2">
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              5
-            </div>
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              6
-            </div>
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              7
-            </div>
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              8
-            </div>
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              9
-            </div>
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              10
-            </div>
-            <div className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-              11
-            </div>
+            {selectedVariant?.attributes?.sizes.map((size: number) => {
+              return (
+                <div
+                  key={`Sizes__${selectedVariant}--${size}`}
+                  className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
+                  {size}
+                </div>
+              )
+            })}
           </div>
         </div>
         <p className="mb-5 text-sm">

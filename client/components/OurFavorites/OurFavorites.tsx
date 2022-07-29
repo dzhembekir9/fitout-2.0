@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import css from './OurFavorites.module.css'
 import cn from 'classnames'
+import { useWindowSize } from '../../hooks'
 import { ourFavoritesData } from './OurFavorites.template'
 import { Carousel } from '../../components'
 import { Tabs, Card } from './Components'
@@ -10,11 +11,15 @@ export const OurFavorites = () => {
   const [selectedTab, setSelectedTab] = useState(0)
   const [scrollTo, setScrollTo] = useState(0)
 
-  const carouselData: CardProps[] = []
+  const { width } = useWindowSize()
 
-  ourFavoritesData.tabs.forEach((tab) => {
-    carouselData.push(...tab.cards)
-  })
+  const carouselData: CardProps[] = useMemo(() => {
+    const data = ourFavoritesData.tabs.map((tab) => {
+      return tab.cards
+    })
+
+    return data.flat()
+  }, [selectedTab])
 
   useEffect(() => {
     if (selectedTab === 0) {
@@ -53,7 +58,7 @@ export const OurFavorites = () => {
         </div>
       </div>
 
-      <div className="block lg:hidden">
+      {width < 976 ? (
         <Carousel
           slides={carouselData}
           scrollTo={scrollTo}
@@ -65,15 +70,15 @@ export const OurFavorites = () => {
                 label={data.label}
                 labelIcon={data.labelIcon}
                 title={data.title}
+                shopMenHref={data.shopMenHref}
+                shopWomenHref={data.shopWomenHref}
               />
             )
           }}
         />
-      </div>
-
-      <div className="hidden lg:block">
+      ) : (
         <Tabs selectedTab={selectedTab} />
-      </div>
+      )}
     </div>
   )
 }

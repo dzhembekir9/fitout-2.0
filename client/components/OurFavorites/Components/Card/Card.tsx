@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import css from './Card.module.css'
 import cn from 'classnames'
 import Image from 'next/image'
+import { useWindowSize } from '../../../../hooks'
 import { CardProps } from '../../OurFavorites.props'
 import { Button } from '../../../Common'
 
 export const Card = (card: CardProps) => {
   const [isMouseOver, setIsMouseOver] = useState(false)
+  const { width } = useWindowSize()
 
   const handleMouseOver = () => {
     setIsMouseOver(true)
@@ -34,10 +36,16 @@ export const Card = (card: CardProps) => {
         {isMouseOver && <div className={css.Overlay} />}
         {isMouseOver && (
           <div className={cn(css.ButtonWrapper, 'center')}>
-            <Button className="my-3 text-md" width={'300px'} href="#">
+            <Button
+              className="my-3 text-md"
+              width={width >= 1440 ? '300px' : 'auto'}
+              href={`/products/${card.shopMenHref}`}>
               SHOP MEN
             </Button>
-            <Button className="text-md" width={'300px'} href="#">
+            <Button
+              className="text-md"
+              width={width >= 1440 ? '300px' : 'auto'}
+              href={`/products/${card.shopWomenHref}`}>
               SHOP WOMEN
             </Button>
           </div>
@@ -52,10 +60,16 @@ export const Card = (card: CardProps) => {
           <p className="ml-3">{card.label}</p>
         </div>
         <div className="flex flex-col lg:hidden">
-          <Button type="secondary" className="my-2 text-sm" href="#">
+          <Button
+            type="secondary"
+            className="my-2 text-sm"
+            href={`/products/${card.shopMenHref}`}>
             SHOP MEN
           </Button>
-          <Button type="secondary" className="text-sm" href="#">
+          <Button
+            type="secondary"
+            className="text-sm"
+            href={`/products/${card.shopWomenHref}`}>
             SHOP WOMEN
           </Button>
         </div>

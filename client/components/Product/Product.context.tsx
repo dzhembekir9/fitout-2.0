@@ -1,10 +1,16 @@
-import React, { useState, createContext, useContext } from 'react'
-import { useRouter } from 'next/router'
-import { GET_PRODUCT } from '../../operations/queries'
+import React, { createContext, useContext } from 'react'
 import { useProduct } from '../../hooks'
-import { Product } from '../../types/Product'
+import { Product, Variant } from '../../types/Product'
 
-const ProductContext = createContext<Product>({
+type ProductProps = {
+  isLoading: boolean
+  error: any
+  getProductVariants: () => Variant[] | undefined
+  selectVariantById: (id: string) => void
+  selectedVariant: Variant | undefined
+} & Product
+
+const ProductContext = createContext<ProductProps>({
   id: null,
   name: '',
   metaTitle: '',
@@ -22,6 +28,11 @@ const ProductContext = createContext<Product>({
       fractionDigits: null,
     },
   },
+  selectedVariant: undefined,
+  selectVariantById: () => {},
+  error: null,
+  isLoading: true,
+  getProductVariants: () => undefined,
 })
 
 export const ProductContextProvider = ({
@@ -29,31 +40,43 @@ export const ProductContextProvider = ({
 }: {
   children: React.ReactNode | string
 }) => {
-  const { query } = useRouter()
   const {
     product,
-    isProductLoading,
-    isVariantsLoading,
-    productError,
-    variants,
-    selectVariantById,
+    isLoading,
+    error,
+    getProductVariants,
     selectedVariant,
-  } = useProduct({
-    query: GET_PRODUCT,
-    variables: {
-      name: query.productName,
-    },
-  })
+    selectVariantById,
+  } = useProduct()
+
+  const values: ProductProps = {
+    id: product?.id,
+    name: product?.name,
+    metaTitle: product?.metaTitle,
+    metaDescription: product?.metaDescription,
+    createdAt: product?.createdAt,
+    updatedAt: product?.updatedAt,
+    slug: product?.slug,
+    content: product?.content,
+    attributes: product?.attributes,
+    variants: product?.variants,
+    price: product?.price,
+    selectedVariant,
+    selectVariantById,
+    error,
+    isLoading,
+    getProductVariants,
+  }
 
   return (
     <>
-      <ProductContext.Provider value={product}>
+      <ProductContext.Provider value={values}>
         {children}
       </ProductContext.Provider>
     </>
   )
 }
 
-export const useProductInfo = () => {
+export const useProductContext = () => {
   return useContext(ProductContext)
 }
