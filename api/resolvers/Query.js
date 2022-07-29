@@ -17,14 +17,6 @@ const Query = {
       return null
     }
   },
-  getAllVariants: async (parent, { productId }, context) => {
-    try {
-      const product = await Product.findOne({ id: productId })
-      return product.variants
-    } catch (error) {
-      return null
-    }
-  },
 }
 
 module.exports = Query

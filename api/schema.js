@@ -122,7 +122,6 @@ const typeDefs = gql`
   type Query {
     getAllProducts: [Product]!
     getProductBySlug(slug: String): Product
-    getAllVariants(productId: ID!): [Attributes]
   }
 
   type Mutation {

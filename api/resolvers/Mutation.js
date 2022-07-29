@@ -3,6 +3,10 @@ const Product = require('../models/Product')
 
 const Mutation = {
   createProduct: async (parent, { product: productInput }, context) => {
+    const variantsWithId = productInput.variants.map((variant) => {
+      return { id: uuid(), ...variant }
+    })
+
     const product = new Product({
       id: uuid(),
       name: productInput.name,
@@ -13,7 +17,7 @@ const Mutation = {
       slug: productInput.slug,
       content: productInput.content,
       attributes: productInput.attributes,
-      variants: { id: uuid(), ...productInput.variants },
+      variants: variantsWithId,
       price: productInput.price,
     })
 
