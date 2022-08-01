@@ -39,7 +39,7 @@ export const Card = (card: CardProps) => {
             <Button
               className="my-3 text-md"
               width={width >= 1440 ? '300px' : 'auto'}
-              href={`/products/${card.shopMenHref}`}>
+              href={`/products${card.shopMenHref}`}>
               SHOP MEN
             </Button>
             <Button
@@ -63,7 +63,7 @@ export const Card = (card: CardProps) => {
           <Button
             type="secondary"
             className="my-2 text-sm"
-            href={`/products/${card.shopMenHref}`}>
+            href={`/products${card.shopMenHref}`}>
             SHOP MEN
           </Button>
           <Button

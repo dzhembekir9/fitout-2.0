@@ -11,6 +11,10 @@ type CarouselProps = {
   slideWidth?: number
   overflow?: 'hidden' | 'visible'
   withButtons?: boolean
+  loop?: boolean
+  dragFree?: boolean
+  startIndex?: number
+  withDots?: boolean
 }
 
 export const Carousel = ({
@@ -20,10 +24,16 @@ export const Carousel = ({
   slideWidth,
   overflow = 'hidden',
   withButtons,
+  loop = false,
+  dragFree = false,
+  startIndex = 0,
+  withDots = false,
 }: CarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel({
-    dragFree: true,
+    dragFree,
     containScroll: 'trimSnaps',
+    loop,
+    startIndex,
   })
 
   useEffect(() => {
@@ -38,10 +48,13 @@ export const Carousel = ({
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla])
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla])
 
+  const [currentSlide, setCurrentSlide] = useState(startIndex)
+
   const onSelect = useCallback(() => {
     if (!embla) return
     setPrevBtnEnabled(embla.canScrollPrev())
     setNextBtnEnabled(embla.canScrollNext())
+    setCurrentSlide(embla?.selectedScrollSnap())
   }, [embla])
 
   useEffect(() => {
@@ -93,6 +106,21 @@ export const Carousel = ({
               <IconChevronRight />
             </button>
           )}
+        </div>
+      )}
+      {withDots && (
+        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2">
+          {Array.from({ length: slides?.length }).map((_, index) => {
+            return (
+              <div
+                key={`Dot__${index}`}
+                className={cn(css.Dot, {
+                  [css.CurrentDot]: currentSlide === index,
+                })}
+                onClick={() => embla?.scrollTo(index)}
+              />
+            )
+          })}
         </div>
       )}
     </div>

@@ -1,0 +1,42 @@
+.Wrapper {
+  @apply fixed top-0 left-0 w-full h-full;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+.Content {
+  @apply fixed center;
+  width: 95%;
+  height: 95%;
+  z-index: 99999;
+  background-color: rgb(245, 245, 245);
+}
+
+.CloseIcon {
+  @apply absolute right-5 top-5;
+  height: 36px;
+  width: 36px;
+  text-indent: -9999em;
+  z-index: 999999;
+  background-color: transparent;
+
+  &::before {
+    content: '';
+    @apply absolute top-1/2 left-1/2;
+    width: 2px;
+    height: 36px;
+    background-color: rgb(33, 42, 47);
+    transition: transform 250ms ease-in-out 0s;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    content: '';
+    @apply absolute top-1/2 left-1/2;
+    width: 2px;
+    height: 36px;
+    background-color: rgb(33, 42, 47);
+    transition: transform 250ms ease-in-out 0s;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

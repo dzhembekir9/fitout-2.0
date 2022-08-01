@@ -9,9 +9,13 @@ export const GET_PRODUCT = gql`
       attributes
       variants {
         id
+        colors
         attributes {
-          sizes
-          color
+          sizes {
+            size
+            available
+          }
+          colorName
         }
         images {
           original

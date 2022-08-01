@@ -14,8 +14,9 @@ export interface Product {
 
 export interface Variant {
   id: string
-  attributes: any
+  attributes: Attributes
   images: Image[]
+  colors: string[]
 }
 
 export interface Price {
@@ -24,6 +25,16 @@ export interface Price {
     currencyCode: string
     fractionDigits: number | null
   }
+}
+
+export interface Attributes {
+  sizes: Size[]
+  colorName: string
+}
+
+export interface Size {
+  size: number
+  available: boolean
 }
 
 export interface Content {

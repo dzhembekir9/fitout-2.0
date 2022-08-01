@@ -12,6 +12,7 @@ export const HomePageCarousel = ({ title, cards }: HomePageCarouselProps) => {
         slideWidth={396}
         overflow="visible"
         withButtons
+        dragFree
         renderSlide={(card) => {
           return (
             <Card

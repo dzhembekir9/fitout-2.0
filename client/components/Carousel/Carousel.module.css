@@ -62,3 +62,18 @@
 .NextButton {
   @apply absolute right-10 top-1/2;
 }
+
+.Dot {
+  @apply inline-block cursor-pointer;
+  min-width: 5px;
+  height: 5px;
+  margin-left: 6px;
+  margin-right: 6px;
+  background-color: rgb(211, 212, 213);
+  border-radius: 50%;
+  transition: transform 0.2s ease-out 0s;
+}
+
+.CurrentDot {
+  transform: scale(2);
+}

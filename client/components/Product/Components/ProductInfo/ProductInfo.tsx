@@ -2,6 +2,7 @@ import React from 'react'
 import { usePrice } from '../../../../hooks'
 import { Button } from '../../../Common'
 import { useProductContext } from '../../Product.context'
+import { ColorCombination, ProductSizes } from '../../Components'
 
 export const ProductInfo = () => {
   const {
@@ -28,27 +29,37 @@ export const ProductInfo = () => {
         <div>★ ★ ★ ★ ★ (502)</div>
       </div>
       <div>
-        <span>Colors:</span>
-        <span>{selectedVariant?.attributes?.color}</span>
-        {variants?.map((variant) => {
-          return (
-            <div
-              key={`Colors__${variant.id}`}
-              onClick={() => selectVariantById(variant.id)}>
-              {variant.attributes.color}
-            </div>
-          )
-        })}
+        <div className="mb-2.5 flex">
+          <span className="text-sm mr-1 font-bold tracking-wider uppercase">
+            Classics:
+          </span>
+          <span className="text-sm tracking-wide">
+            {selectedVariant?.attributes?.colorName}
+          </span>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {variants?.map((variant) => {
+            return (
+              <div
+                key={`Colors__${variant.id}`}
+                onClick={() => selectVariantById(variant.id)}>
+                <ColorCombination colors={variant.colors} />
+              </div>
+            )
+          })}
+        </div>
         <div className="mt-5 mb-4">
-          <div className="mb-3">Select size:</div>
+          <div className="mb-3 text-sm uppercase font-bold tracking-wider">
+            Select size:
+          </div>
           <div className="flex flex-wrap gap-2">
-            {selectedVariant?.attributes?.sizes.map((size: number) => {
+            {selectedVariant?.attributes?.sizes.map((size) => {
               return (
-                <div
-                  key={`Sizes__${selectedVariant}--${size}`}
-                  className="py-4 px-6 border inline-flex cursor-pointer hover:bg-grey transition">
-                  {size}
-                </div>
+                <ProductSizes
+                  key={`Sizes__${selectedVariant}--${size.size}`}
+                  size={size.size}
+                  available={size.available}
+                />
               )
             })}
           </div>
@@ -58,7 +69,7 @@ export const ProductInfo = () => {
           recommend you size down.See Size Chart
         </p>
         <Button type="secondary" width="100%">
-          ADD TO CART - $105
+          ADD TO CART - {formattedPrice}
         </Button>
         <span className="block text-center mt-3 text-sm">
           Free shipping on orders over $50. Free returns.
