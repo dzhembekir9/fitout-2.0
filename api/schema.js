@@ -31,27 +31,39 @@ const typeDefs = gql`
   """
   Attribute Type
   """
-  type Attribute {
-    color: String
-    sizes: [Int]
+  type Size {
+    size: Int
+    available: Boolean
   }
 
-  type Attributes {
+  input SizeInput {
+    size: Int
+    available: Boolean
+  }
+
+  type Attribute {
+    colorName: String
+    sizes: [Size]
+  }
+
+  input AttributeInput {
+    colorName: String
+    sizes: [SizeInput]
+  }
+
+  type Variant {
     id: String
     attributes: Attribute
     images: [Image]!
     custom: String
+    colors: [String]
   }
 
-  input AttributeInput {
-    color: String
-    sizes: [Int]
-  }
-
-  input AttributesInput {
+  input VariantInput {
     attributes: AttributeInput
     images: [ImageInput]!
     custom: String
+    colors: [String]
   }
 
   type Image {
@@ -102,7 +114,7 @@ const typeDefs = gql`
     slug: String!
     content: [Content!]!
     attributes: [String]!
-    variants: [Attributes]
+    variants: [Variant]
     price: Price
   }
 
@@ -115,7 +127,7 @@ const typeDefs = gql`
     slug: String!
     content: [ContentInput!]!
     attributes: [String]!
-    variants: [AttributesInput]
+    variants: [VariantInput]
     price: PriceInput
   }
 
