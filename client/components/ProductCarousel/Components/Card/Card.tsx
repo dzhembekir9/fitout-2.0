@@ -1,13 +1,21 @@
 import React from 'react'
 import css from './Card.module.css'
+import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
-import { CardProps } from '../../HomePageCarousel.props'
+import { CardProps } from '../../ProductCarousel.props'
 
-export const Card = ({ title, content, image, href }: CardProps) => {
+type Props = {
+  withBoxShadow?: boolean
+} & CardProps
+
+export const Card = ({ title, content, image, href, withBoxShadow }: Props) => {
   return (
     <Link href={href} passHref>
-      <a className={css.Wrapper}>
+      <a
+        className={cn(css.Wrapper, {
+          [css.Shadow]: withBoxShadow,
+        })}>
         <div className="bg-lightGrey">
           <Image
             src={image.src}

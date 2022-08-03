@@ -1,4 +1,4 @@
-export type HomePageCarouselProps = {
+export type ProductCarouselProps = {
   title: string
   cards: CardProps[]
 }

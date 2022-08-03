@@ -54,7 +54,7 @@ export const Carousel = ({
     if (!embla) return
     setPrevBtnEnabled(embla.canScrollPrev())
     setNextBtnEnabled(embla.canScrollNext())
-    setCurrentSlide(embla?.selectedScrollSnap())
+    setCurrentSlide(embla.selectedScrollSnap())
   }, [embla])
 
   useEffect(() => {

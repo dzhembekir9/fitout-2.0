@@ -13,7 +13,13 @@ const getRGBValue = (colorHex: string) => {
   return null
 }
 
-export const ColorCombination = ({ colors }: { colors: string[] }) => {
+export const ColorCombination = ({
+  colors,
+  currentColor,
+}: {
+  colors: string[]
+  currentColor: boolean
+}) => {
   const mainColor = getRGBValue(colors[0])
   const soleColor = getRGBValue(colors[1])
 
@@ -27,7 +33,9 @@ export const ColorCombination = ({ colors }: { colors: string[] }) => {
             '--color': colors[0],
           } as CSSProperties
         }
-        className={cn(css.ColorSwatch)}
+        className={cn(css.ColorSwatch, {
+          [css.Selected]: currentColor,
+        })}
       />
     )
   }
@@ -39,7 +47,9 @@ export const ColorCombination = ({ colors }: { colors: string[] }) => {
           '--background': swatch,
         } as CSSProperties
       }
-      className={cn(css.ColorSwatch, css.DoubleColor)}
+      className={cn(css.ColorSwatch, css.DoubleColor, {
+        [css.Selected]: currentColor,
+      })}
     />
   )
 }

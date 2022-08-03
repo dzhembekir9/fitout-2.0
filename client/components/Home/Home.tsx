@@ -5,13 +5,13 @@ import {
   OurFavorites,
   Banner,
   Newsletter,
-  HomePageCarousel,
+  ProductCarousel,
 } from '../../components'
 import {
   newArrivalData,
   shopTheCollectionsData,
   storiesData,
-} from '../HomePageCarousel/HomePageCarousel.template'
+} from '../ProductCarousel/ProductCarousel.template'
 
 export const Home = () => {
   return (
@@ -35,7 +35,7 @@ export const Home = () => {
       </section>
 
       <section className="layout">
-        <HomePageCarousel {...newArrivalData} />
+        <ProductCarousel {...newArrivalData} />
       </section>
 
       <section className="layout">
@@ -51,7 +51,7 @@ export const Home = () => {
       </section>
 
       <section className="layout">
-        <HomePageCarousel {...shopTheCollectionsData} />
+        <ProductCarousel {...shopTheCollectionsData} />
       </section>
 
       <section className="layout">
@@ -66,7 +66,7 @@ export const Home = () => {
       </section>
 
       <section className="layout">
-        <HomePageCarousel {...storiesData} />
+        <ProductCarousel {...storiesData} />
       </section>
 
       <section className="bg-lightGrey">

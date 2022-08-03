@@ -21,6 +21,14 @@ export const GET_PRODUCT = gql`
           original
         }
       }
+      content {
+        key
+        html
+        content {
+          label
+          content
+        }
+      }
       price {
         originalPrice {
           centAmount

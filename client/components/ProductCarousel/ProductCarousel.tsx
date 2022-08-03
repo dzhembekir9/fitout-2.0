@@ -1,15 +1,25 @@
 import React from 'react'
-import { Carousel } from '../../components'
-import { HomePageCarouselProps } from './HomePageCarousel.props'
+import { Carousel } from '..'
+import { ProductCarouselProps } from './ProductCarousel.props'
 import { Card } from './Components'
 
-export const HomePageCarousel = ({ title, cards }: HomePageCarouselProps) => {
+type Props = {
+  slideWidth?: number
+  withBoxShadow?: boolean
+} & ProductCarouselProps
+
+export const ProductCarousel = ({
+  title,
+  cards,
+  slideWidth = 396,
+  withBoxShadow,
+}: Props) => {
   return (
     <div>
       <h2 className="container text-4xl font-bold mb-4.5">{title}</h2>
       <Carousel
         slides={cards}
-        slideWidth={396}
+        slideWidth={slideWidth}
         overflow="visible"
         withButtons
         dragFree
@@ -21,6 +31,7 @@ export const HomePageCarousel = ({ title, cards }: HomePageCarouselProps) => {
               content={card.content}
               image={card.image}
               href={card.href}
+              withBoxShadow={withBoxShadow}
             />
           )
         }}

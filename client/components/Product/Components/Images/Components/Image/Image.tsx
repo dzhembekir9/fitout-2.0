@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import NextImage from 'next/image'
-import { useOutsideClick } from '../../../../../../hooks'
 import { Image as ImageProps } from '../../../../../../types/Product'
 import { Modal } from '../../../../../Common'
 import { PlusInCircle } from '../../../../../Common/Icons'
@@ -21,63 +20,59 @@ export const ImageComponent = ({
   const [isHovered, setIsHovered] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const containerRef = useRef<HTMLDivElement>(null)
-
   const closeModal = () => {
     setIsModalOpen(false)
-  }
-
-  const onOutsideClick = () => {
-    closeModal()
     setIsHovered(false)
   }
-
-  useOutsideClick(containerRef, onOutsideClick)
 
   const width = 450
   const height = 450
 
   return (
-    <div
-      onMouseOver={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsModalOpen(true)}
-      className="cursor-pointer relative">
-      {isHovered && (
-        <div className="center z-50">
-          <PlusInCircle />
-        </div>
-      )}
-      <NextImage
-        src={original}
-        alt={productName}
-        width={width}
-        height={height}
-      />
+    <>
+      <div
+        onMouseOver={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setIsModalOpen(true)}
+        className="cursor-pointer relative">
+        {isHovered && (
+          <div className="center z-50">
+            <PlusInCircle />
+          </div>
+        )}
+        <NextImage
+          src={original}
+          alt={productName}
+          width={width}
+          height={height}
+        />
+      </div>
       {isModalOpen && (
-        <Modal onClose={closeModal}>
-          <div className="h-full" ref={containerRef}>
-            <Carousel
-              slides={images}
-              slideWidth={1000}
-              withButtons
-              loop
-              startIndex={index}
-              withDots
-              renderSlide={(image) => {
-                return (
+        <Modal onClose={closeModal} backgroundColor="grey">
+          <Carousel
+            slides={images}
+            slideWidth={1000}
+            withButtons
+            loop
+            startIndex={index}
+            withDots
+            renderSlide={(image) => {
+              return (
+                <div className="w-full h-full">
                   <NextImage
                     src={image.original}
                     alt={productName}
-                    width={530}
-                    height={530}
+                    layout="responsive"
+                    width="100%"
+                    height="86%"
+                    objectFit="contain"
                   />
-                )
-              }}
-            />
-          </div>
+                </div>
+              )
+            }}
+          />
         </Modal>
       )}
-    </div>
+    </>
   )
 }

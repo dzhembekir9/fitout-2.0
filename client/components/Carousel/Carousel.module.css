@@ -1,5 +1,5 @@
 .Wrapper {
-  @apply relative w-full overflow-hidden;
+  @apply relative w-full h-full overflow-hidden;
 }
 
 .Viewport {

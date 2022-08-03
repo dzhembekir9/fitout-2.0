@@ -1,6 +1,6 @@
-import { HomePageCarouselProps } from './HomePageCarousel.props'
+import { ProductCarouselProps } from './ProductCarousel.props'
 
-export const newArrivalData: HomePageCarouselProps = {
+export const newArrivalData: ProductCarouselProps = {
   title: 'New Arrivals',
   cards: [
     {
@@ -96,7 +96,7 @@ export const newArrivalData: HomePageCarouselProps = {
   ],
 }
 
-export const shopTheCollectionsData: HomePageCarouselProps = {
+export const shopTheCollectionsData: ProductCarouselProps = {
   title: 'Shop The Collections',
   cards: [
     {
@@ -199,7 +199,7 @@ export const shopTheCollectionsData: HomePageCarouselProps = {
   ],
 }
 
-export const storiesData: HomePageCarouselProps = {
+export const storiesData: ProductCarouselProps = {
   title: 'Stories',
   cards: [
     {

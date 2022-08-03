@@ -1,0 +1,87 @@
+.Toggle {
+  @apply w-full border-t border-grey;
+}
+
+.Content {
+  @apply pb-3 overflow-hidden;
+  transition: height 300ms ease 0s, padding 300ms ease 0s;
+  height: auto;
+}
+
+.ShowContent {
+  height: var(--height);
+  padding: auto;
+}
+
+.HideContent {
+  height: 0;
+  padding: 0;
+}
+
+.Button {
+  @apply flex justify-between items-center w-full p-3 pl-0;
+
+  & > svg {
+    @apply rotate-90;
+  }
+}
+
+.RotateClockwise {
+  animation: rotate-clockwise 200ms ease-in-out 1 normal both;
+}
+
+.RotateCounterClockwise {
+  animation: rotate-counter-clockwise 200ms ease-in-out 1 normal both;
+}
+
+@keyframes rotate-clockwise {
+  0% {
+    transform: rotate(90deg);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  60% {
+    transform: rotate(225deg);
+  }
+  100% {
+    transform: rotate(265deg);
+  }
+}
+
+@keyframes rotate-counter-clockwise {
+  0% {
+    transform: rotate(265deg);
+  }
+  40% {
+    transform: rotate(225deg);
+  }
+  60% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes show-content {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: auto;
+  }
+}
+
+@keyframes hide-content {
+  from {
+    opacity: 1;
+    height: auto;
+  }
+  to {
+    opacity: 1;
+    height: 0;
+  }
+}

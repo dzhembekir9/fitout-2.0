@@ -6,3 +6,9 @@
 .DoubleColor {
   background: var(--background);
 }
+
+.Selected {
+  outline: 2px solid rgb(116, 121, 124);
+  outline-offset: 1px;
+  transition: all 50ms ease-in 0s;
+}

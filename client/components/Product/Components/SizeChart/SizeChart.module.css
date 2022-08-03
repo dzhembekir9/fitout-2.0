@@ -1,0 +1,30 @@
+.Table {
+  @apply block table-fixed;
+  border-spacing: 3px;
+  border-collapse: separate;
+}
+
+.Row {
+  @apply font-bold text-md;
+  color: rgb(33, 42, 47);
+}
+
+.CellHeading {
+  @apply text-lg font-bold;
+  background-color: rgb(33, 42, 47) !important;
+  color: rgb(255, 255, 255);
+}
+
+.Cell {
+  @apply text-center p-4.5;
+  vertical-align: middle;
+  min-width: 77px;
+
+  &:nth-child(2n) {
+    background-color: rgb(241, 246, 248);
+  }
+
+  &:nth-child(2n + 1) {
+    background-color: rgb(238, 235, 229);
+  }
+}
