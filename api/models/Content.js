@@ -1,11 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const ContentSchema = mongoose.Schema({
   key: {
     type: String,
     required: true,
   },
-  label: String,
   content: [
     {
       label: {
@@ -16,6 +15,6 @@ const ContentSchema = mongoose.Schema({
     },
   ],
   html: String,
-});
+})
 
-module.exports = ContentSchema;
+module.exports = ContentSchema

@@ -16,7 +16,6 @@ const typeDefs = gql`
 
   type Content {
     key: String!
-    label: String
     content: [ContentType]
     html: String
   }
